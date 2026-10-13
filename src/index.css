@@ -1,0 +1,60 @@
+/* Colors are eyeballed from design/Home.png; swap in exact hex from Figma */
+:root {
+  --color-bg: #f9f9f7;
+  --color-text: #1a1a1a;
+  --color-title: #4a3a40;
+
+  --font-nav: 'Italiana', serif;
+  --font-title: 'erotique-alternate', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+header {
+  padding-top: 40px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  font-family: var(--font-nav);
+  font-size: 20px;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 72px 0 0;
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 56px;
+  color: var(--color-title);
+}
+
+main {
+  min-height: 60vh;
+}
+
+footer {
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--color-text);
+  cursor: pointer;
+}

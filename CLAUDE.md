@@ -57,6 +57,8 @@ every session.
 - Never force-push, rewrite history or delete files without asking.
 
 ## Docs
-- After each step, propose a status update for `walkthrough.md`.
+- Update `walkthrough.md` as part of each step's build (status, one-line
+  note, any decision) so it lands in that step's commit. Keep it short and
+  never commit it separately.
 - Non-obvious decisions get a 3-line entry in the Decisions log
   (Context / Decision / Why).

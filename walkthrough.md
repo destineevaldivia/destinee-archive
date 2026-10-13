@@ -60,6 +60,7 @@ In:
 - Project detail page
 - About page
 - Nav
+- Intro splash (title for a few seconds, then home)
 - Works on desktop and phone
 - Deployed
 
@@ -72,31 +73,39 @@ Out (for now):
 ## Steps
 | # | Step | Check | Status |
 |---|---|---|---|
-| 0a | Setup: `git init`, clear the Vite starter, first commit | site loads with name | done (after you commit) |
-| 0b | Connect to GitHub: create an empty repo, add the remote, first push | repo page on github.com shows the files | to do |
-| 1 | Layout shell + nav | visual vs `design/` | to do |
+| 0a | Setup: `git init`, clear the Vite starter, first commit | site loads with name | done |
+| 0b | Connect to GitHub: create an empty repo, add the remote, first push | repo page on github.com shows the files | done |
+| 1 | Layout shell + nav | visual vs `design/` | done |
 | 2 | Archive grid from a project data file | test: renders each project | to do |
 | 3 | Project detail page + routing | test: clicking opens the right project | to do |
+| 3b | Intro splash: title centered for a few seconds, then home | visual vs `design/Hero.png` (re-export, currently blank) | to do |
 | 4 | About page | visual | to do |
 | 5 | Phone-size pass | visual | to do |
 | 6 | Deploy (Vercel or Netlify) | live URL works | to do |
 
 **Open decisions** (to settle in the plan step where each comes up):
-- Styling: plain CSS, CSS Modules, or Tailwind? (step 1)
 - Data shape: what fields does a project have? (step 2)
 - Routing: React Router or something lighter? (step 3)
 - Images: in `public/` or imported? (step 2)
 - Hosting: Vercel or Netlify? (step 6)
 
 ## Status
-_Last updated: 2026-10-09_
-- Current step: 0b
-- Notes: Starter cleared; page shows the site name. `index.css` is empty
-  until we pick styling in step 1. No `gh` CLI, so the GitHub repo gets
-  created on the website.
+_Last updated: 2026-10-13_
+- Current step: 2
+- Notes: Shell built (nav, title, scroll-to-top). Colors are eyeballed;
+  swap in exact hex from Figma. **To check:** Adobe Fonts may restrict
+  domains. If the title falls back to a plain serif (localhost or the live
+  site), add the domain in the web project on fonts.adobe.com.
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **Styling:** Small, minimal site → plain CSS in `index.css` with color
+  variables → no new tools; split into files only if it grows.
+- **Fonts:** Nav in Italiana, body in Inter (Google Fonts), title in
+  Erotique Alternate (Adobe Fonts kit) → loaded via `<link>` in
+  `index.html`, no npm packages.
+- **GitHub auth:** HTTPS push failed on a stale saved password → installed
+  `gh` CLI and signed in via browser → no tokens to create or manage by hand.
 - **Design reference:** Figma mockup is unfinished → export PNGs instead of
   Figma MCP → less setup; I make the design calls. Revisit MCP when the
   design is final.
