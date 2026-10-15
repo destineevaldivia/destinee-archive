@@ -1,3 +1,6 @@
+import ProjectList from './ProjectList'
+import projects from './projects'
+
 function App() {
   return (
     <>
@@ -10,7 +13,9 @@ function App() {
         <h1>Destinee Archive</h1>
       </header>
 
-      <main></main>
+      <main>
+        <ProjectList projects={projects} />
+      </main>
 
       <footer>
         <button

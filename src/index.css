@@ -6,7 +6,7 @@
 
   --font-nav: 'Italiana', serif;
   --font-title: 'erotique-alternate', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-body: 'minion-pro', 'Times New Roman', Times, serif;
 }
 
 body {
@@ -44,6 +44,45 @@ h1 {
 
 main {
   min-height: 60vh;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 95px;
+  padding-top: 200px;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 392px 327px;
+  column-gap: 70px;
+  justify-content: center;
+  align-items: center;
+}
+
+.project img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 6 / 5;
+  object-fit: cover;
+}
+
+.project-text {
+  text-align: center;
+}
+
+.project h2 {
+  margin: 0;
+  font-family: 'minion-pro-subhead', 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.project p {
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 footer {
