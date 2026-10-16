@@ -76,7 +76,8 @@ Out (for now):
 | 0a | Setup: `git init`, clear the Vite starter, first commit | site loads with name | done |
 | 0b | Connect to GitHub: create an empty repo, add the remote, first push | repo page on github.com shows the files | done |
 | 1 | Layout shell + nav | visual vs `design/` | done |
-| 2 | Archive grid from a project data file | test: renders each project | to do |
+| 2a | Project list from a data file | test: renders each project | done |
+| 2b | Click-to-advance image carousel | test: first image, next, wraps, single image | done |
 | 3 | Project detail page + routing | test: clicking opens the right project | to do |
 | 3b | Intro splash: title centered for a few seconds, then home | visual vs `design/Hero.png` (re-export, currently blank) | to do |
 | 4 | About page | visual | to do |
@@ -84,26 +85,34 @@ Out (for now):
 | 6 | Deploy (Vercel or Netlify) | live URL works | to do |
 
 **Open decisions** (to settle in the plan step where each comes up):
-- Data shape: what fields does a project have? (step 2)
 - Routing: React Router or something lighter? (step 3)
-- Images: in `public/` or imported? (step 2)
+- Project page content: what fields beyond the preview? (step 3)
 - Hosting: Vercel or Netlify? (step 6)
 
 ## Status
-_Last updated: 2026-10-13_
-- Current step: 2
-- Notes: Shell built (nav, title, scroll-to-top). Colors are eyeballed;
+_Last updated: 2026-10-16_
+- Current step: 3
+- Notes: Home shows 4 placeholder projects with carousels. Row widths are
+  fixed px and will overflow on phones (step 5). Colors are eyeballed;
   swap in exact hex from Figma. **To check:** Adobe Fonts may restrict
   domains. If the title falls back to a plain serif (localhost or the live
   site), add the domain in the web project on fonts.adobe.com.
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **Carousel:** Rows preview several images → click the image to advance,
+  wrap to the first, dots are indicator only, no dots for a single image →
+  simplest control that works by keyboard too.
+- **Project data:** `slug`, `title`, `year`, `description`, `images` in
+  `src/projects.js`; images in `public/projects/` as path strings → adding a
+  project is a folder plus one entry; revisit if it needs to scale.
+  `images` = row preview; full page fields get decided in step 3.
 - **Styling:** Small, minimal site → plain CSS in `index.css` with color
   variables → no new tools; split into files only if it grows.
-- **Fonts:** Nav in Italiana, body in Inter (Google Fonts), title in
-  Erotique Alternate (Adobe Fonts kit) → loaded via `<link>` in
-  `index.html`, no npm packages.
+- **Fonts:** Nav in Italiana (Google Fonts); site title in Erotique
+  Alternate, project titles in Minion Pro Subhead, body in Minion Pro (Adobe
+  Fonts kit) → loaded via `<link>` in `index.html`, no npm packages. Tried
+  Inter for body, preferred the serif.
 - **GitHub auth:** HTTPS push failed on a stale saved password → installed
   `gh` CLI and signed in via browser → no tokens to create or manage by hand.
 - **Design reference:** Figma mockup is unfinished → export PNGs instead of

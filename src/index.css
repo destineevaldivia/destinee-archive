@@ -68,6 +68,33 @@ main {
   object-fit: cover;
 }
 
+.carousel-dots {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.carousel-dots span {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #9a9a9a;
+  border-radius: 50%;
+}
+
+.carousel-dots span.active {
+  background: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.carousel-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 .project-text {
   text-align: center;
 }

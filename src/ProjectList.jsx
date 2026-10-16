@@ -1,9 +1,11 @@
+import ProjectCarousel from './ProjectCarousel'
+
 function ProjectList({ projects }) {
   return (
     <div className="project-list">
       {projects.map((project) => (
         <article key={project.slug} className="project">
-          <img src={project.images[0]} alt="" />
+          <ProjectCarousel images={project.images} />
           <div className="project-text">
             <h2>
               {project.title} {project.year}
