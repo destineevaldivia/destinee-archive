@@ -78,28 +78,37 @@ Out (for now):
 | 1 | Layout shell + nav | visual vs `design/` | done |
 | 2a | Project list from a data file | test: renders each project | done |
 | 2b | Click-to-advance image carousel | test: first image, next, wraps, single image | done |
-| 3 | Project detail page + routing | test: clicking opens the right project | to do |
+| 3 | Project detail page + routing | test: clicking opens the right project, unknown slug | done |
 | 3b | Intro splash: title centered for a few seconds, then home | visual vs `design/Hero.png` (re-export, currently blank) | to do |
 | 4 | About page | visual | to do |
 | 5 | Phone-size pass | visual | to do |
 | 6 | Deploy (Vercel or Netlify) | live URL works | to do |
 
 **Open decisions** (to settle in the plan step where each comes up):
-- Routing: React Router or something lighter? (step 3)
-- Project page content: what fields beyond the preview? (step 3)
-- Hosting: Vercel or Netlify? (step 6)
+- Hosting: Vercel or Netlify? (step 6). Needs an SPA fallback so direct
+  visits to `/projects/...` load the app instead of a 404.
 
 ## Status
 _Last updated: 2026-10-16_
-- Current step: 3
-- Notes: Home shows 4 placeholder projects with carousels. Row widths are
-  fixed px and will overflow on phones (step 5). Colors are eyeballed;
+- Current step: 3b
+- Notes: Titles open `/projects/<slug>`; one shared page for now. About link
+  shows an empty page until step 4. Row widths are fixed px and will
+  overflow on phones (step 5). Colors are eyeballed;
   swap in exact hex from Figma. **To check:** Adobe Fonts may restrict
   domains. If the title falls back to a plain serif (localhost or the live
   site), add the domain in the web project on fonts.adobe.com.
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **Routing:** Project pages need URLs and the splash must play once per
+  visit → React Router (v8), `/projects/:slug` → pages switch without
+  reloading the site.
+- **Project page:** No Figma frame; each project's page will be shaped by
+  its content later → one shared `ProjectPage` (title, description, all
+  images) for now → no guessed fields.
+- **Nav:** Home already lists every project and titles link to their pages
+  → nav is Home · About, "Project Archive" dropped (differs from
+  `Home.png`) → no duplicate list page.
 - **Carousel:** Rows preview several images → click the image to advance,
   wrap to the first, dots are indicator only, no dots for a single image →
   simplest control that works by keyboard too.

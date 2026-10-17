@@ -1,20 +1,35 @@
+import { useEffect } from 'react'
+import { Link, Route, Routes, useLocation } from 'react-router'
 import ProjectList from './ProjectList'
+import ProjectPage from './ProjectPage'
 import projects from './projects'
 
 function App() {
+  const { pathname } = useLocation()
+
+  // Start each new page at the top
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
     <>
       <header>
         <nav>
-          <a href="/">Home</a>
-          <a href="/archive">Project Archive</a>
-          <a href="/about">About</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
         </nav>
         <h1>Destinee Archive</h1>
       </header>
 
       <main>
-        <ProjectList projects={projects} />
+        <Routes>
+          <Route path="/" element={<ProjectList projects={projects} />} />
+          <Route
+            path="/projects/:slug"
+            element={<ProjectPage projects={projects} />}
+          />
+        </Routes>
       </main>
 
       <footer>

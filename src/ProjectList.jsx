@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import ProjectCarousel from './ProjectCarousel'
 
 function ProjectList({ projects }) {
@@ -8,7 +9,9 @@ function ProjectList({ projects }) {
           <ProjectCarousel images={project.images} />
           <div className="project-text">
             <h2>
-              {project.title} {project.year}
+              <Link to={`/projects/${project.slug}`}>
+                {project.title} {project.year}
+              </Link>
             </h2>
             <p>{project.description}</p>
           </div>

@@ -106,10 +106,48 @@ main {
   font-weight: 400;
 }
 
+.project h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .project p {
   margin: 24px 0 0;
   font-size: 14px;
   line-height: 1.4;
+}
+
+.project-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 120px;
+  text-align: center;
+}
+
+.project-page h2 {
+  margin: 0;
+  font-family: 'minion-pro-subhead', 'Times New Roman', Times, serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.project-page p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.project-page img {
+  display: block;
+  width: 100%;
+}
+
+.project-page a {
+  color: inherit;
 }
 
 footer {
