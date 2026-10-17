@@ -111,6 +111,18 @@ main {
   text-decoration: none;
 }
 
+nav a,
+.project h2 a {
+  transition: opacity 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible,
+.project h2 a:hover,
+.project h2 a:focus-visible {
+  opacity: 0.5;
+}
+
 .project p {
   margin: 24px 0 0;
   font-size: 14px;

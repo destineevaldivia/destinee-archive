@@ -91,7 +91,8 @@ Out (for now):
 ## Status
 _Last updated: 2026-10-16_
 - Current step: 3b
-- Notes: Titles open `/projects/<slug>`; one shared page for now. About link
+- Notes: Titles open `/projects/<slug>`; one shared page for now. Nav and
+  titles fade to 50% on hover/focus. About link
   shows an empty page until step 4. Row widths are fixed px and will
   overflow on phones (step 5). Colors are eyeballed;
   swap in exact hex from Figma. **To check:** Adobe Fonts may restrict
