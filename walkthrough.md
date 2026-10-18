@@ -40,6 +40,19 @@ git remote add origin <repo URL>   # tell git where GitHub lives, under the name
 git push -u origin main            # upload your commits; -u remembers origin as the default
 ```
 
+## Branch workflow (bigger changes)
+Small fixes: commit straight to `main`. Bigger work (animations, new
+features): use a branch and check its Vercel preview first.
+```
+git switch -c feat/splash-animation   # new branch, named type/what
+# ...build, commit as usual...
+git push -u origin feat/splash-animation
+gh pr create --fill                   # open a pull request; Vercel posts a preview link on it
+# check the preview URL; push more commits if needed (preview updates)
+gh pr merge --squash --delete-branch  # one tidy commit on main, branch removed
+git switch main && git pull           # bring your local main up to date
+```
+
 ## When something's off
 | Symptom | Do this |
 |---|---|
@@ -84,15 +97,18 @@ Out (for now):
 | 3b | Intro splash: title centered for a few seconds, then home | test: shows, hands over, click skips, project URL skips | done |
 | 4 | About page | test: nav opens About, contact links, email copies; visual | done |
 | 5 | Phone-size pass | visual in DevTools (375, 390–430, 768) | done |
-| 6 | Deploy (Vercel or Netlify) | live URL works | to do |
+| 6 | Deploy on Vercel | live URL works, direct visits/reloads, fonts, real phone | done |
 
-**Open decisions** (to settle in the plan step where each comes up):
-- Hosting: Vercel or Netlify? (step 6). Needs an SPA fallback so direct
-  visits to `/projects/...` load the app instead of a 404.
+**MVP complete.** Next is **V0**, built with the same loop, in this order:
+1. Logo work
+2. Splash page animation
+3. Real content (projects and images)
+4. About page
 
 ## Status
 _Last updated: 2026-10-18_
-- Current step: 6
+- Live: https://destinee-archive.vercel.app (auto-deploys on push to `main`; tests gate each deploy)
+- Current step: MVP done
 - Notes: Visits to `/` open with a 2.5s splash (click or key skips).
   Titles open `/projects/<slug>`; one shared page for now. Nav and titles
   fade on hover. About has placeholder bio, 4 contacts and an empty space
@@ -105,6 +121,13 @@ _Last updated: 2026-10-18_
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **Hosting:** Vercel (Hobby, free `.vercel.app` URL) with `vercel.json`:
+  tests run before every build, all paths rewrite to `index.html` → broken
+  tests never go live, direct links work. Hobby is non-commercial only;
+  revisit if the site ever sells work. Custom domain later.
+- **Branch workflow:** Small fixes to `main`; bigger work on a branch →
+  PR → Vercel preview → squash-merge → test changes before they're public,
+  one tidy commit per change.
 - **Phone layout:** Desktop row needs ~789px → one media query at 840px:
   rows stack (dots, image, text), contacts stack, title 36px, 20px side
   padding everywhere → no sideways scroll on phones or upright tablets.

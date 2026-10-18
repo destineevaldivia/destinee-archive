@@ -55,6 +55,10 @@ every session.
   - Types: `feat` `fix` `style` `refactor` `test` `docs` `chore`
   - Example: `feat(grid): render projects from data file`
 - Never force-push, rewrite history or delete files without asking.
+- Small fixes go straight to `main`. Bigger work (animations, new
+  features, anything multi-file) goes on a branch → pull request → check
+  the Vercel preview URL → merge.
+- In the Plan step, say whether to use `main` or a branch, and why.
 
 ## Docs
 - Update `walkthrough.md` as part of each step's build (status, one-line
