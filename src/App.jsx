@@ -1,16 +1,23 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Route, Routes, useLocation } from 'react-router'
 import ProjectList from './ProjectList'
 import ProjectPage from './ProjectPage'
+import Splash from './Splash'
 import projects from './projects'
 
 function App() {
   const { pathname } = useLocation()
+  // Only a visit that starts on the home page gets the splash
+  const [showSplash, setShowSplash] = useState(pathname === '/')
 
   // Start each new page at the top
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [pathname])
+
+  if (showSplash) {
+    return <Splash onDone={() => setShowSplash(false)} />
+  }
 
   return (
     <>

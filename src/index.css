@@ -42,6 +42,25 @@ h1 {
   color: var(--color-title);
 }
 
+.splash {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.splash.leaving {
+  opacity: 0;
+}
+
+.splash h1 {
+  margin: 0;
+}
+
 main {
   min-height: 60vh;
 }

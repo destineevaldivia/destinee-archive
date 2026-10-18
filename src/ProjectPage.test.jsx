@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { afterEach, expect, test, vi } from 'vitest'
 import App from './App'
@@ -17,7 +17,13 @@ function renderAt(url) {
 }
 
 test('clicking a project title opens that project page', () => {
+  vi.useFakeTimers()
   renderAt('/')
+  // Skip the splash: click it, then let the fade finish
+  fireEvent.click(screen.getByRole('heading', { name: 'Destinee Archive' }))
+  act(() => vi.advanceTimersByTime(500))
+  vi.useRealTimers()
+
   fireEvent.click(screen.getByRole('link', { name: 'Film One 2026' }))
 
   expect(screen.getByRole('heading', { name: 'Film One 2026' })).toBeTruthy()
