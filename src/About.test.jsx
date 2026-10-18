@@ -29,6 +29,14 @@ test('the About nav link opens the about page', () => {
     .toBe('https://www.are.na/destinee-valdivia')
 })
 
+test('the nav marks About as the current page', () => {
+  renderAt('/about')
+  const nav = (name) => screen.getByRole('link', { name })
+
+  expect(nav('About').getAttribute('aria-current')).toBe('page')
+  expect(nav('Home').getAttribute('aria-current')).toBeNull()
+})
+
 test('clicking the email copies it and says copied', async () => {
   const writeText = vi.fn().mockResolvedValue()
   Object.assign(navigator, { clipboard: { writeText } })

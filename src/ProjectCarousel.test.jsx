@@ -30,6 +30,15 @@ test('a click on the last image wraps to the first', () => {
   expect(shownImage().getAttribute('src')).toBe('/one.svg')
 })
 
+test('the counter shows which image is showing', () => {
+  const { container } = render(<ProjectCarousel images={images} />)
+  const counter = () => container.querySelector('.carousel-count').textContent
+
+  expect(counter()).toBe('1/3')
+  fireEvent.click(screen.getByRole('button', { name: 'Next image' }))
+  expect(counter()).toBe('2/3')
+})
+
 test('a single image is not clickable', () => {
   render(<ProjectCarousel images={['/one.svg']} />)
   expect(screen.queryByRole('button')).toBeNull()

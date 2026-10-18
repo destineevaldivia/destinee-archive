@@ -11,6 +11,9 @@ function ProjectList({ projects }) {
             <h2>
               <Link to={`/projects/${project.slug}`}>
                 {project.title} {project.year}
+                <span className="title-arrow" aria-hidden="true">
+                  →
+                </span>
               </Link>
             </h2>
             <p>{project.description}</p>

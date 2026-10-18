@@ -9,10 +9,15 @@ function ProjectCarousel({ images }) {
 
   return (
     <div>
-      <div className="carousel-dots" aria-hidden="true">
-        {images.map((image, i) => (
-          <span key={i} className={i === index ? 'dot active' : 'dot'} />
-        ))}
+      <div className="carousel-header">
+        <div className="carousel-dots" aria-hidden="true">
+          {images.map((image, i) => (
+            <span key={i} className={i === index ? 'dot active' : 'dot'} />
+          ))}
+        </div>
+        <span className="carousel-count">
+          <span className="carousel-current">{index + 1}</span>/{images.length}
+        </span>
       </div>
       <button
         type="button"

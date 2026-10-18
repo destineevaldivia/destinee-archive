@@ -30,6 +30,12 @@ test('clicking a project title opens that project page', () => {
   expect(screen.queryByRole('heading', { name: 'Photo Two 2026' })).toBeNull()
 })
 
+test('Home stays marked as current on a project page', () => {
+  renderAt('/projects/film-one')
+  const home = screen.getByRole('link', { name: 'Home' })
+  expect(home.getAttribute('aria-current')).toBe('page')
+})
+
 test('an unknown project shows not found', () => {
   renderAt('/projects/typo')
   expect(screen.getByText('Project not found')).toBeTruthy()

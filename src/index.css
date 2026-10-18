@@ -88,10 +88,24 @@ main {
   object-fit: cover;
 }
 
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
 .carousel-dots {
   display: flex;
   gap: 2px;
-  margin-bottom: 12px;
+}
+
+.carousel-count {
+  font-size: 12px;
+}
+
+.carousel-current {
+  opacity: 0.5;
 }
 
 /* Shared by the carousel and the About contacts */
@@ -135,11 +149,16 @@ main {
   text-decoration: none;
 }
 
+.title-arrow {
+  margin-left: 6px;
+}
+
 nav a,
 .project h2 a {
   transition: opacity 0.2s;
 }
 
+nav a.active,
 nav a:hover,
 nav a:focus-visible,
 .project h2 a:hover,
