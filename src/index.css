@@ -11,6 +11,7 @@
 
 body {
   margin: 0;
+  padding: 0 20px;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -244,4 +245,43 @@ footer button {
   font-size: 28px;
   color: var(--color-text);
   cursor: pointer;
+}
+
+/* Phones and small tablets: the desktop row needs ~789px */
+@media (max-width: 840px) {
+  h1 {
+    margin-top: 48px;
+    font-size: 36px;
+  }
+
+  .project-list {
+    gap: 64px;
+    padding-top: 80px;
+  }
+
+  .project {
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .project-page {
+    padding-top: 64px;
+  }
+
+  .about {
+    padding-top: 48px;
+  }
+
+  .contacts {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .about-animation {
+    min-height: 200px;
+  }
 }

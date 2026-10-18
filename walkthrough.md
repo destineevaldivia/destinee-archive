@@ -83,7 +83,7 @@ Out (for now):
 | 3 | Project detail page + routing | test: clicking opens the right project, unknown slug | done |
 | 3b | Intro splash: title centered for a few seconds, then home | test: shows, hands over, click skips, project URL skips | done |
 | 4 | About page | test: nav opens About, contact links, email copies; visual | done |
-| 5 | Phone-size pass | visual | to do |
+| 5 | Phone-size pass | visual in DevTools (375, 390–430, 768) | done |
 | 6 | Deploy (Vercel or Netlify) | live URL works | to do |
 
 **Open decisions** (to settle in the plan step where each comes up):
@@ -92,18 +92,22 @@ Out (for now):
 
 ## Status
 _Last updated: 2026-10-18_
-- Current step: 5
+- Current step: 6
 - Notes: Visits to `/` open with a 2.5s splash (click or key skips).
   Titles open `/projects/<slug>`; one shared page for now. Nav and titles
-  fade on hover. About has placeholder bio, contacts and an empty space reserved for a
-  future animation. Row widths are
-  fixed px and will overflow on phones (step 5). Colors are eyeballed;
-  swap in exact hex from Figma. `design/Hero.png` removed (export was blank). **To check:** Adobe Fonts may restrict
-  domains. If the title falls back to a plain serif (localhost or the live
-  site), add the domain in the web project on fonts.adobe.com.
+  fade on hover. About has placeholder bio, 4 contacts and an empty space
+  reserved for a future animation. Below 840px, rows and contacts stack
+  and the title shrinks to 36px. Colors are eyeballed; swap in exact hex
+  from Figma. `design/Hero.png` removed (export was blank).
+  **To check:** Adobe Fonts may restrict domains. If the title falls back
+  to a plain serif (localhost or the live site), add the domain in the web
+  project on fonts.adobe.com.
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **Phone layout:** Desktop row needs ~789px → one media query at 840px:
+  rows stack (dots, image, text), contacts stack, title 36px, 20px side
+  padding everywhere → no sideways scroll on phones or upright tablets.
 - **About contacts:** Reuse the carousel dots → one shared `.dot` class;
   Instagram/LinkedIn open new tabs, email copies to clipboard and shows
   "Copied" for 2s; Tab-only keyboard → no mail-app surprise, dots stay
