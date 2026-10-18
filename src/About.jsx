@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 const links = [
   { label: 'Instagram', href: 'https://www.instagram.com/dustyknees_/' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/destinee-valdivia/' },
+  { label: 'Are.na', href: 'https://www.are.na/destinee-valdivia' },
 ]
 const email = 'destvaldivia@gmail.com'
 

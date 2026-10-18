@@ -25,6 +25,8 @@ test('the About nav link opens the about page', () => {
     .toBe('https://www.instagram.com/dustyknees_/')
   expect(screen.getByRole('link', { name: 'LinkedIn' }).getAttribute('href'))
     .toBe('https://www.linkedin.com/in/destinee-valdivia/')
+  expect(screen.getByRole('link', { name: 'Are.na' }).getAttribute('href'))
+    .toBe('https://www.are.na/destinee-valdivia')
 })
 
 test('clicking the email copies it and says copied', async () => {
