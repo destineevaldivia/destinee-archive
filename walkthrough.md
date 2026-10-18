@@ -121,6 +121,11 @@ _Last updated: 2026-10-18_
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **Wayfinding:** On phones nothing hovers, so links and position weren't
+  obvious → titles end in `→` (Minion glyph), carousel shows `1/4` with the
+  current number lighter, nav marks the current page lighter (Home stays
+  marked on project pages) → visitors always know what's tappable and
+  where they are. A hand-drawn arrow may replace `→` in V0.
 - **Hosting:** Vercel (Hobby, free `.vercel.app` URL) with `vercel.json`:
   tests run before every build, all paths rewrite to `index.html` → broken
   tests never go live, direct links work. Hobby is non-commercial only;

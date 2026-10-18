@@ -10,6 +10,9 @@ function App() {
   const { pathname } = useLocation()
   // Only a visit that starts on the home page gets the splash
   const [showSplash, setShowSplash] = useState(pathname === '/')
+  // Project pages live under Home, so Home stays marked there too
+  const onHome = pathname === '/' || pathname.startsWith('/projects/')
+  const onAbout = pathname === '/about'
 
   // Start each new page at the top
   useEffect(() => {
@@ -24,8 +27,20 @@ function App() {
     <>
       <header>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link
+            to="/"
+            className={onHome ? 'active' : undefined}
+            aria-current={onHome ? 'page' : undefined}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className={onAbout ? 'active' : undefined}
+            aria-current={onAbout ? 'page' : undefined}
+          >
+            About
+          </Link>
         </nav>
         <h1>Destinee Archive</h1>
       </header>
