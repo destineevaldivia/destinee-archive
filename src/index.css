@@ -93,14 +93,18 @@ main {
   margin-bottom: 12px;
 }
 
-.carousel-dots span {
+/* Shared by the carousel and the About contacts */
+.dot {
+  display: inline-block;
   width: 6px;
   height: 6px;
   border: 1px solid #9a9a9a;
   border-radius: 50%;
 }
 
-.carousel-dots span.active {
+.dot.active,
+.contact:hover .dot,
+.contact:focus-visible .dot {
   background: var(--color-text);
   border-color: var(--color-text);
 }
@@ -179,6 +183,54 @@ nav a:focus-visible,
 
 .project-page a {
   color: inherit;
+}
+
+.about {
+  max-width: 520px;
+  margin: 0 auto;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.about p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 64px;
+}
+
+/* Links and the email button share one look */
+.contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact-label {
+  transition: opacity 0.2s;
+}
+
+.contact:hover .contact-label,
+.contact:focus-visible .contact-label {
+  opacity: 0.5;
+}
+
+.about-animation {
+  min-height: 320px;
 }
 
 footer {

@@ -11,7 +11,7 @@ function ProjectCarousel({ images }) {
     <div>
       <div className="carousel-dots" aria-hidden="true">
         {images.map((image, i) => (
-          <span key={i} className={i === index ? 'active' : ''} />
+          <span key={i} className={i === index ? 'dot active' : 'dot'} />
         ))}
       </div>
       <button

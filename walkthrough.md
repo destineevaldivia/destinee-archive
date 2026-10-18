@@ -82,7 +82,7 @@ Out (for now):
 | 2b | Click-to-advance image carousel | test: first image, next, wraps, single image | done |
 | 3 | Project detail page + routing | test: clicking opens the right project, unknown slug | done |
 | 3b | Intro splash: title centered for a few seconds, then home | test: shows, hands over, click skips, project URL skips | done |
-| 4 | About page | visual | to do |
+| 4 | About page | test: nav opens About, contact links, email copies; visual | done |
 | 5 | Phone-size pass | visual | to do |
 | 6 | Deploy (Vercel or Netlify) | live URL works | to do |
 
@@ -92,10 +92,11 @@ Out (for now):
 
 ## Status
 _Last updated: 2026-10-18_
-- Current step: 4
+- Current step: 5
 - Notes: Visits to `/` open with a 2.5s splash (click or key skips).
   Titles open `/projects/<slug>`; one shared page for now. Nav and titles
-  fade on hover. About shows an empty page until step 4. Row widths are
+  fade on hover. About has placeholder bio, contacts and an empty space reserved for a
+  future animation. Row widths are
   fixed px and will overflow on phones (step 5). Colors are eyeballed;
   swap in exact hex from Figma. `design/Hero.png` removed (export was blank). **To check:** Adobe Fonts may restrict
   domains. If the title falls back to a plain serif (localhost or the live
@@ -103,6 +104,10 @@ _Last updated: 2026-10-18_
 
 ## Decisions log
 <!-- Context / Decision / Why. Newest at top. -->
+- **About contacts:** Reuse the carousel dots → one shared `.dot` class;
+  Instagram/LinkedIn open new tabs, email copies to clipboard and shows
+  "Copied" for 2s; Tab-only keyboard → no mail-app surprise, dots stay
+  identical across the site.
 - **Splash:** Illustrated version isn't designed yet → MVP is the title
   alone for 2.5s, then a 0.5s fade; only when a visit starts at `/`; click
   or key skips → shared project links open directly, repeat visitors aren't

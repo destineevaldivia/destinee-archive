@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, Route, Routes, useLocation } from 'react-router'
+import About from './About'
 import ProjectList from './ProjectList'
 import ProjectPage from './ProjectPage'
 import Splash from './Splash'
@@ -36,6 +37,7 @@ function App() {
             path="/projects/:slug"
             element={<ProjectPage projects={projects} />}
           />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
 
